@@ -19,7 +19,9 @@ const Navbar = () => {
         <li><NavLink activeClassName="bg-red" to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/details">Details</NavLink></li>
-        <li><NavLink to="/blog">Blog</NavLink></li>
+        {
+            user?.email && <li><NavLink to="/bookings">My Bookings</NavLink></li>
+        }
         <li><NavLink to="/contact">Contact</NavLink></li>
     </div>
     return (
@@ -52,6 +54,8 @@ const Navbar = () => {
                                     <button onClick={handleLogOut} className="btn btn-outline btn-error duration-300 px-3 font-medium ml-3">
                                         Logout
                                     </button>
+                                    
+
                                 </div>
                             ) : (
                                 <Link to='/login'>
@@ -61,23 +65,7 @@ const Navbar = () => {
                                 </Link>
                             )}
 
-                            {/* {user ?
-                                    <div className="text-black" data-tip={user.displayName}>
-
-                                        <img className='rounded-full w-8 mr-3' src={user.photoURL}  />
-
-                                    </div> : <div className='w-[32px] h-[32px] mr-3'><FcNightPortrait></FcNightPortrait></div>
-
-                                }
-                                {user ?
-                                    <button onClick={handleLogOut} className="btn btn-outline btn-error  duration-300 px-3 font-medium">
-                                        Logout</button> :
-                                    <Link to='/login'>
-                                        <button className="btn btn-outline btn-error duration-300 px-3 font-medium">
-                                            Login
-                                        </button>
-                                    </Link>
-                                } */}
+                            
                         </div>
                     </div>
                 </div>
